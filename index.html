@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- !подключаем семейство шрифтов посредством плагина google fonts
-    !&display=swap нужен для улучшения оптимизации, в частности влияет на очки в Google Page Speed -->
+    <!-- подключаем семейство шрифтов посредством плагина google fonts
+    &display=swap нужен для улучшения оптимизации, в частности влияет на очки в Google Page Speed -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:regular,italic,500,600,700,800&display=swap"
       rel="stylesheet"
@@ -47,24 +47,37 @@
                 We know how large objects will act, but things on a small scale.
               </div>
               <div class="main-block__buttons">
-                <a href="" class="main-block__button">Get Quote Now</a>
-                <a href="" class="main-block__button main-block__button-border">
+                <a href="" class="main-block__button main-block__button orange"
+                  >Get Quote Now</a
+                >
+                <a href="" class="main-block__button main-block__button border">
                   Learn More
                 </a>
               </div>
             </div>
           </div>
+          <div class="main-block__image ibg">
+            <img
+              src="/img/mainblock/cover.jpg"
+              alt="Background picture for main page"
+            />
+          </div>
         </div>
-        <div class="main-block__image ibg">
-          <img
-            src="/img/mainblock/cover.jpg"
-            alt="Background picture for main page"
-          />
-        </div>
+        <section class="page__services services">
+          <div class="page__services-container">
+            <div class="services__body">
+              <div class="services__column">
+                <div class="services__item item-service"></div>
+                <h3 class="item-service__title"></h3>
+                <div class="item-service__text"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer class="footer">Я подвал</footer>
     </div>
-    <!-- !Скрипт в самом низу чтобы браузер сначала прогрузил всю страницу -->
+    <!-- Скрипт в самом низу чтобы браузер сначала прогрузил всю страницу -->
     <script src="/js/script.js"></script>
   </body>
 </html>
