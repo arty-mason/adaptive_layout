@@ -320,12 +320,13 @@ body {
 
 .services {
 }
-/* .page__services-container {
+.page__services-container {
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  width: 1046px;
+  max-width: 1046px;
   justify-content: space-between;
-} */
+}
 
 .services__body {
   display: flex;
