@@ -331,11 +331,31 @@ body {
 }
 .item-service {
 }
+
+.item-service > *:not(:last-child) {
+  margin: 0px 0px 10px 0px;
+}
+
+.item-service__green {
+  background-color: #0d5c63;
+}
+
+.white {
+  color: #fff;
+}
+
 .item-service__icon {
 }
+
 .item-service__title {
   font-weight: 700;
+  letter-spacing: 0.1px;
   font-size: 24px;
+  line-height: calc(32 / 24 * 100%);
+}
+.item-service__text:not(:last-child) {
+  color: #737373;
 }
 .item-service__text {
+  line-height: calc(20 / 14 * 100%);
 }
