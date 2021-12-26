@@ -199,7 +199,8 @@ body {
 
 .page__achievements {
 }
-
+.page__practice {
+}
 /* --HEADER-BLOCK------------------------------------- */
 
 .header-block {
@@ -220,7 +221,7 @@ body {
 
 .header__block_sub-title {
   color: #737373;
-  line-height: calc(57 / 40) * 100%;
+  line-height: calc(57 / 40 * 100%);
 }
 
 @media (max-width: 992px) {
@@ -272,7 +273,7 @@ body {
 
 .main-block__body > *:not(:last-child) {
   /* Комбинация "> *" это обращение ко всем объектам первого уровня. Это значит, что в данном блоке кода свойства будут применяться только к первым блокам родительского контейнера, не затрагивая их подблоки. В данном случае, это main-block__title, main-block__text и main-block__buttons */
-  margin-bottom: 0px 0px 35px 0px;
+  margin: 0px 0px 35px 0px;
 }
 
 .main-block__title {
@@ -573,4 +574,117 @@ body {
   /* ! В макете Figma размер шрифта 16px, но текст идёт в строку. Чтобы добиться строчного текста, вручную уменьшил шрифт на 1px  */
   line-height: calc(24 / 15 * 100%);
   /* ! В вычислении величины строки введено изменённое значение размера шрифта */
+}
+/* ----------------------------------------------------- */
+.practice {
+  padding: 125px 0px 80px 0px;
+}
+
+@media (max-width: 993px) {
+  .practice {
+    padding: 40px 0px 80px 0px;
+    /* Работаем с отступами при уменьшении ширины экрана*/
+  }
+}
+
+@media (max-width: 767px) {
+  .practice {
+    padding: 0px 0px 40px 0px;
+    /*  см. выше */
+  }
+}
+
+.practice__container {
+}
+
+.practice__header {
+  margin: 0px 0px 45px 0px;
+}
+
+@media (max-width: 993px) {
+  .practice__header {
+    padding: 0px 0px 25px 0px;
+  }
+}
+
+.practice__body {
+  margin: 0px -20px -30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.practice__column {
+  padding: 0px 20px;
+  margin: 0px 0px 30px 0px;
+  flex: 0 1 25%;
+}
+
+@media (max-width: 1040px) {
+  .practice__column {
+    flex: 0 1 50%;
+    /* Как и ранее, увеличиваем размер карточки до 50% с уменьшением экрана */
+  }
+}
+
+@media (max-width: 630px) {
+  .practice__column {
+    flex: 0 1 100%;
+    /* То же самое, но теперь уже карточка занимает всю строку при меньшем разрешении (100%) */
+  }
+}
+
+.practice__item {
+}
+
+.item-practice {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  /* Делаем контейнер флексом, разворачиваем ось на вертикальную */
+  height: 100%;
+  /* Даём контенту возможность занимать всё пустое пространство */
+}
+
+.item-practice__content {
+  padding: 30px;
+  flex: 1 1 auto;
+  /* Разрешаем контенту увеличиваться в размерах */
+}
+
+.item-practice__link {
+  color: inherit;
+  display: inline-block;
+  /*  ВАЖНО: для строчной ссылки не сработает выставленный ниже внешний отступ, поэтому необходимо применить параметр display со значением inline-block*/
+}
+
+.item-practice__link:not(:last-child) {
+  margin: 0px 0px 15px 0px;
+  /* Вышеупомянутый отступ, применяемый ко всем элементам в блоке, кроме последнего */
+}
+
+.item-practice__link:hover {
+  text-decoration: underline;
+  color: #ff7b47;
+  /* ! Добавил от себя изменения цвет при наведении курсора */
+}
+
+.item-practice__title {
+  letter-spacing: 0.1px;
+  font-size: 14px;
+  /* ! Аналогично предыдущему блоку с текстом, уменьшил шрифт, в данном случае до 14px, чтобы весь текст уместился в 1 строку  */
+  line-height: calc(24 / 14 * 100%);
+  /* ! По этой же причине при вычислении высоты строки, задал значение 14 (текущий размер шрифта) вместо 16 (по видео) */
+  font-weight: 700;
+}
+
+.item-practice__text {
+  color: #737373;
+  line-height: calc(20 / 14 * 100%);
+}
+
+.item-practice__image {
+  display: block;
+  /* Делается для ссылки */
+  padding: 0px 0px 60% 0px;
+  /* Пояснение про проценты: берём высоту изображения (138px) и делим на его ширину (230px) и умножаем на 100%, итого 138 / 230 * 100% = 60%  */
 }
