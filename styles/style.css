@@ -199,7 +199,11 @@ body {
 
 .page__achievements {
 }
+
 .page__practice {
+}
+
+.page__whoweare {
 }
 /* --HEADER-BLOCK------------------------------------- */
 
@@ -687,4 +691,175 @@ body {
   /* Делается для ссылки */
   padding: 0px 0px 60% 0px;
   /* Пояснение про проценты: берём высоту изображения (138px) и делим на его ширину (230px) и умножаем на 100%, итого 138 / 230 * 100% = 60%  */
+}
+
+/* ------------------------------------------ */
+
+.whoweare {
+  background: #ffffff;
+  padding: 80px 0px 130px 0px;
+}
+
+.whoweare__container {
+}
+
+.whoweare__header {
+  margin: 0px 0px 100px 0px;
+}
+
+.whoweare__body {
+  display: flex;
+  align-items: flex-start;
+  /* "Прижимаем" элементы контейнера к началу (верху) контейнера при уменьшении разрешения */
+}
+
+.whoweare__video {
+  flex: 0 0 calc(600 / 1046 * 100%);
+  /* !Задаём размер флекса с помощью математической формулы 'calc' вместо выставления 57%. Здесь 600 - размер флекс-элемента из макета, 1046 - размер флекс-контейнера. Так выходит по причине того, что блок .whoweare_video не имеет собственного родительского флекс-контейнера, и является и элементом, и флекс-контейнером одновременно. */
+  position: relative;
+  padding: 0px 0px calc(442 / 1046 * 100%) 0px;
+  /* !Задаём размерозадающий внешний отступ через такую же формулу */
+}
+
+.whoweare__video iframe {
+  /* Обращаемся к тегу iframe, с помощью которого вставлено видео */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.whoweare__content {
+  flex: 1 1 auto;
+  padding: 20px 0px 0px 121px;
+}
+
+.whoweare__title {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: calc(57 / 40 * 100%);
+  /* ! Делим высоту строки из макета на размер шрифта */
+  letter-spacing: 0.2px;
+}
+
+.whoweare__title:not(:last-child) {
+  margin: 0px 0px 10px 0px;
+  /* Делаем отступ от заголовка */
+  /* ? Почему применяется именно :not(:last-child)? У нас же и так вложен один элемент. */
+}
+
+.whoweare__text {
+  color: #737373;
+  font-size: 14px;
+  line-height: calc(20 / 14 * 100%);
+  /* ! Или те же 142(.8)% */
+}
+
+.whoweare__top:not(:last-child) {
+  margin: 0px 0px 50px 0px;
+}
+
+.whoweare__items {
+}
+
+.whoweare__item {
+}
+
+.whoweare__item:not(:last-child) {
+  margin: 0px 0px 30px 0px;
+  /* В колонке нам нужен отступ только между двумя блоками, поэтому применяем not:last-child чтобы не было "провисания" из-за пустого отступа после второго (последнего) блока */
+}
+
+.item-whoweare {
+  display: flex;
+}
+
+.item-whoweare__icon {
+  flex: 0 0 32px;
+}
+
+.item-whoweare__body {
+  flex: 1 1 auto;
+  padding: 0px 0px 0px 20px;
+}
+
+.item-whoweare__title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(24 / 16 * 100%);
+  /* ! См. выше */
+}
+
+.item-whoweare__title:not(:last-child) {
+  margin: 0px 0px 5px 0px;
+}
+
+.item-whoweare__text {
+  color: #737373;
+  white-space: nowrap;
+  /* Параметр "white-space" контролирует поведение пробельных символов внутри элемента. При значении "nowrap" пробелы не переносятся на новую строку. */
+  line-height: calc(20 / 14 * 100%);
+  width: 225px;
+  /* Фиксируем ширину строки, чтобы сработал параметр "text-overflow" */
+  overflow: hidden;
+  /* Свойство "overflow" определяет, нужно ли для переполненного блочного элемента обрезать контент, предоставить полосы прокрутки или просто отобразить (в последнем случае, контент будет вылазить за рамки блока).
+  При значении "hidden" контент обрезается без прокрутки.*/
+  text-overflow: ellipsis;
+  /* При обрезании контента можно применить два значения: clip (текст обрезается по размеру области) и ellipsis (текст обрезается и добавляется многоточие в конце строки). */
+}
+
+@media (max-width: 1080px) {
+  .whoweare__content {
+    padding: 0px 0px 0px 50px;
+    /* Убираем и уменьшаем отступы при уменьшении ширины экрана */
+  }
+}
+
+@media (max-width: 950px) {
+  /* Создаём единый медиазапрос для нескольких элементов при уменьшении ширины экрана до 950px (Принцип Keep It Simple Stupid)*/
+  .whoweare {
+    padding: 50px 0px 50px 0px;
+    /* Уменьшаем внешний отступ для всего блока */
+  }
+  .whoweare__body {
+    flex-direction: column-reverse;
+    /* Устанавливаем вертикальную ось для элементов контейнера, и меняем их порядок (сперва текст, затем видео) */
+    /* ВАЖНО! При установлении вертикальной оси и обратного порядка контента блок с видео пропадает. Это фиксится с помощью следующей строки. */
+    align-items: stretch;
+    /* Растягиваем контент по всей длине контейнера, и таким образом отображается съехавший блок с видео */
+  }
+  .whoweare__title {
+    font-size: 24px;
+    /* Уменьшаем шрифт заголовка */
+  }
+  .whoweare__content {
+    padding: 0px 0px 0px 50px;
+    /* Уменьшаем внутренний отступ для контента */
+  }
+  .whoweare__video {
+    padding: 0px 0px calc(315 / 560 * 100%) 0px;
+    /* !При изменении пропорций видео брались значения из самого видео при его встраивании */
+  }
+  .whoweare__video:not(:last-child) {
+    margin: 50px 0px 0px 0px;
+    /* ? В блоке .whoweare__video всего лишь один элемент - сам блок с видео. Как так получается, что работает свойство not:last-child и появляется верхний отступ? */
+  }
+  .whoweare__header {
+    margin: 0px 0px 30px 0px;
+    /* Уменьшаем внешний отступ для хедера */
+  }
+}
+
+@media (max-width: 767px) {
+  .whoweare {
+    padding: 20px 0px 50px 0px;
+  }
+  .whoweare__top:not(:last-child) {
+    margin: 0px 0px 30px 0px;
+  }
+  .whoweare__video:not(:last-child) {
+    margin: 30px 0px 0px 0px;
+  }
 }
