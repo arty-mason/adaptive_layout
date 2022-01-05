@@ -342,6 +342,59 @@
             </div>
           </div>
         </section>
+        <div class="page__clients">
+          <div class="clients__container container">
+            <div class="clients__items">
+              <div class="clients__item">
+                <img src="/img/clients/01.png" alt="Clients" />
+              </div>
+              <div class="clients__item">
+                <img src="/img/clients/02.png" alt="Clients" />
+              </div>
+              <div class="clients__item">
+                <img src="/img/clients/03.png" alt="Clients" />
+              </div>
+              <div class="clients__item">
+                <img src="/img/clients/04.png" alt="Clients" />
+              </div>
+              <div class="clients__item">
+                <img src="/img/clients/05.png" alt="Clients" />
+              </div>
+              <div class="clients__item">
+                <img src="/img/clients/06.png" alt="Clients" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="page__subscribe subscribe">
+          <div class="subscribe__container container">
+            <div class="subscribe__body">
+              <h4 class="subscribe__title">Subscribe For Latest Newsletter</h4>
+              <form action="#" class="subscribe__form">
+                <!-- Создаём форму для заполнения -->
+                <input
+                  class="subscribe__input"
+                  autocomplete="off"
+                  type="email"
+                  required
+                  name="form[]"
+                  placeholder="Your Email"
+                  class="subscribe__form"
+                />
+                <!-- 1) Отключаем автозаполнение. Это значение обычно используется для отмены сохранения в браузере важных данных (паролей, номеров банковских карт), а также редко вводимых или уникальных данных (капча). Обязательный атрибут -->
+                <!-- 2) Выставляем тип вводимых данных (имейл) и параметр required. Это даст нам браузерную проверку правильности написания эл. адреса без подклочения JS -->
+                <!-- 3)  -->
+                <!-- ? 4) Задаём имя. Зачем нам квадратные скобки? -->
+                <!-- 5) Выставляем в окошко (placeholder) текст по умолчанию, указывающий, что именно нужно вводить-->
+                <!-- 6) Выставляем класс -->
+                <button type="submit" class="subscribe__button">
+                  Subscribe
+                </button>
+                <!-- Ставим кнопку (button) и параметр "type" со значением "submit" для создания кнопка для отправки данных формы на сервер.-->
+              </form>
+            </div>
+          </div>
+        </section>
       </main>
       <footer class="footer">Я подвал</footer>
     </div>

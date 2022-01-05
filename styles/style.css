@@ -205,6 +205,16 @@ body {
 
 .page__whoweare {
 }
+
+.page__clients:not(:last-child) {
+  margin: 0px 0px 10px 0px;
+  /* Создаём отступ в 10px от элемента
+  Применяем not:last-child на случай, если данный элемент будет последним на сайте, чтобы не было провисающих отступов
+  */
+}
+
+.page__subscribe {
+}
 /* --HEADER-BLOCK------------------------------------- */
 
 .header-block {
@@ -862,4 +872,109 @@ body {
   .whoweare__video:not(:last-child) {
     margin: 30px 0px 0px 0px;
   }
+}
+/* ---------------------------------- */
+.clients {
+  padding: 50px 0;
+}
+
+@media (max-width: 767px) {
+  .clients {
+    padding: 30px 0;
+  }
+}
+
+.clients__container {
+}
+
+.clients__items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Ставим контент в центр по горизонтальной линии для равномерного распределения при уменьшении ширины экрана*/
+}
+
+.clients__item {
+  padding: 8px 15px;
+  flex: 0 1 16.6667%;
+  /* Т.к. вкладок клиентов всего 6 штук, необходимо чтобы каждая из них занимала равную часть страницы. Для этого, делим 100% от ширины контейнера на 6 и получаем ~16.6667% */
+  text-align: center;
+  min-width: 140px;
+  /* Устанавливаем жёсткие рамки минимальной ширины*/
+}
+
+.clients__item img {
+  max-width: 100%;
+  /* Делается на случай появления большой картинки в блоке, чтобы картинка не обрезалась */
+}
+/* -------------------------------------- */
+
+.subscribe {
+}
+
+.subscribe__container {
+}
+
+.subscribe__body {
+  margin: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px;
+  align-items: center;
+  background: #17213c;
+  border-radius: 2px;
+}
+
+.subscribe__title {
+  flex: 0 1 50%;
+  /* Даём разрешение флексу на уменьшение + задаём размер в 50% от родительского контейнера */
+  color: #ffffff;
+  /* ? Есть ли разница между #fff и #ffffff? */
+  font-size: 24px;
+  line-height: calc(32 / 24 * 100%);
+  /* ! Опять берём данные с макета: размер шрифта (32px) делим на высоту строки (24px) и смотрим, сколько это в процентах (~133%). Ставим формулу вручную вместо процентов для более удобной проработки */
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+.subscribe__form {
+  max-width: 266px;
+  /* Здесь пришлось ограничить максимальную ширину формы чтобы было больше похоже на макет  */
+  margin: 0px 20px 0px 0px;
+  /* ! Так как форма практически вплотную подходила к границе контейнера, добавил вручную внешнего отступа */
+  display: flex;
+  align-items: center;
+}
+
+.subscribe__input {
+  flex: 1 1 auto;
+  min-height: 58px;
+  padding: 0px 20px;
+  background: #f9f9f9;
+  color: #737373;
+  /* Цвет текста по умолчанию (Your Email) */
+  border: 1px solid #e6e6e6;
+  border-right: 0;
+  border-radius: 5px 0px 0px 5px;
+  /* В данном случае ставится радиус только по левым краям кнопки, верхней и нижней. Логика часовой стрелки соблюдается как и в других подобных значениях. */
+}
+
+.subscribe__input:focus {
+  color: #000;
+  /* Добавляем чёрный цвет при введении текста в форму  */
+}
+
+.subscribe__button {
+  background: #ff7b47;
+  border: 1px solid #e6e6e6;
+  border-radius: 0px 5px 5px 0px;
+  /* Здесь ситуация, обратная вышеописанной: радиус только для правой части кнопки */
+  display: flex;
+  min-height: 58px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0px 22px;
 }
