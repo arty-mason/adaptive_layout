@@ -911,19 +911,40 @@ body {
 /* -------------------------------------- */
 
 .subscribe {
+  position: relative;
+  padding: 0px 0px 20px 0px;
+}
+
+.subscribe::before {
+  /* Cоздаём псевдоэлемент,который является первым потомком выбранного элемента. Часто используется для добавления косметического содержимого в элемент с помощью свойства content: "" */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 77%;
+  left: 0;
+  background: #252b42;
 }
 
 .subscribe__container {
 }
 
 .subscribe__body {
-  margin: 0px 30px;
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  /* Даём z-index выше 1 чтобы наложить поверх псевдоэдемента subscribe::before */
   padding: 30px 50px;
   align-items: center;
   background: #17213c;
   border-radius: 2px;
+}
+
+@media (max-width: 810px) {
+  .subscribe__body {
+    /* Так же используем подход Mobile first */
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .subscribe__title {
@@ -938,6 +959,31 @@ body {
   letter-spacing: 0.1px;
 }
 
+@media (max-width: 810px) {
+  .subscribe__title {
+    margin: 0px 0px 20px 0px;
+  }
+  .subscribe__body {
+    margin: 0px -15px;
+    /* padding: 20px 15px; 
+    ! При изменении боковых отступов как в видео, края блока сильно обрезались, и поэтому применил собственный фикс: два внутренних отступа сверху и снизу выставил как в видео, а боковые оставил теми же*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 1070px) {
+  .subscribe__body {
+    margin: 0px 30px;
+    /* Используем подход Mobile first для лучшей оптимизации поисковой системы (SEO).
+    Это означает, что текущие свойства будут применяться исключительно при использовании с мобильного устройства, и следовательно, строк кода будет меньше. 
+    Подробнее о подходе: https://habr.com/ru/post/269419/ */
+  }
+  .subscribe__title {
+    max-width: 266px;
+  }
+}
+
 .subscribe__form {
   max-width: 266px;
   /* Здесь пришлось ограничить максимальную ширину формы чтобы было больше похоже на макет  */
@@ -948,6 +994,7 @@ body {
 }
 
 .subscribe__input {
+  width: 100%;
   flex: 1 1 auto;
   min-height: 58px;
   padding: 0px 20px;
@@ -978,3 +1025,13 @@ body {
   color: #fff;
   padding: 0px 22px;
 }
+
+@media (max-width: 810px) {
+  .subscribe__button {
+    padding: 0px 15px;
+  }
+  .subscribe__input {
+    padding: 0px 15px;
+  }
+}
+/* ! Последние несколько изменений внесли неразбериху в адаптивную вёрстку и поломали блок Subscribe. При следующем входе разобраться и лично применить фиксы для адаптивного дизайна и нормального отображения */
