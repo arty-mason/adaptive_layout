@@ -942,19 +942,10 @@ body {
   justify-content: space-between;
 }
 
-@media (max-width: 810px) {
-  .subscribe__body {
-    /* Так же используем подход Mobile first */
-  }
-  .subscribe::before {
-  }
-}
-
 .subscribe__title {
   flex: 0 1 50%;
   /* Даём разрешение флексу на уменьшение + задаём размер в 50% от родительского контейнера */
-  color: #ffffff;
-  /* ? Есть ли разница между #fff и #ffffff? */
+  color: #fff;
   font-size: 24px;
   line-height: calc(32 / 24 * 100%);
   /* ! Опять берём данные с макета: размер шрифта (32px) делим на высоту строки (24px) и смотрим, сколько это в процентах (~133%). Ставим формулу вручную вместо процентов для более удобной проработки */
@@ -962,21 +953,41 @@ body {
   letter-spacing: 0.1px;
 }
 
+@media (max-width: 938px) {
+  .subscribe__title {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+  }
+}
 @media (max-width: 810px) {
   .subscribe__title {
-    margin: 0px 0px 20px 0px;
+    /* margin: 0px 0px 20px 0px; 
+    ! Убрал выставленный в видео нижнимй отступ чтобы текст был в центре по вертикальной оси*/
   }
   .subscribe__body {
     margin: 0px -15px;
-    /* padding: 20px 15px; 
-    ! При изменении боковых отступов как в видео, края блока сильно обрезались, и поэтому применил собственный фикс: два внутренних отступа сверху и снизу выставил как в видео, а боковые оставил теми же*/
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 15px;
   }
   .subscribe::before {
     display: none;
     /* Отключает отображение элемента */
     /* ! Собственный фикс: убрал псевдоэлемент (синяя полоса) при ширине экрана 810px т.к. полоса Subscribe и так занимает всю длину страницы и делит её между двумя блоками */
+  }
+}
+
+@media (max-width: 525px) {
+  .subscribe__body {
+    flex-wrap: wrap;
+    /* ! Собственный фикс: Разрешил перенос на другую строку элементов контейнера при уменьшении ширины экрана до 525px*/
+    justify-content: center;
+    /* ! Собственный фикс: переместил кнопки в центр после разделения элементов строкой */
+  }
+  .subscribe__title {
+    justify-content: center;
+    /* ! То же самое сделал и для заголовка */
+    margin-bottom: 15px;
+    /* ! Добавил небольшого отступа между заголовком и кнопками*/
   }
 }
 
@@ -1044,4 +1055,4 @@ body {
   }
 }
 
-/* ! Дораюотать в адаптивной вёрстке: header (max-width: 475px), clients__container (869px), subscribe__body (496px)*/
+/* ! Дораюотать в адаптивной вёрстке: header (max-width: 475px), page__whoweare (460px), clients__container (869px), subscribe__body (434px)*/
