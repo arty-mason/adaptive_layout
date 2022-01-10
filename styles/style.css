@@ -215,6 +215,10 @@ body {
 
 .page__subscribe {
 }
+
+.page__getintouch {
+}
+
 /* --HEADER-BLOCK------------------------------------- */
 
 .header-block {
@@ -1036,4 +1040,97 @@ body {
   }
 }
 
-/* ! Дораюотать в адаптивной вёрстке: header (max-width: 475px), page__whoweare (460px), clients__container (869px)*/
+/* ---------------------------- */
+
+.getintouch {
+  padding: 80px 0px 135px 0px;
+}
+
+.getintouch__container {
+}
+
+.getintouch__header {
+  margin: 0px 0px 80px 0px;
+}
+
+.getintouch_items {
+  display: flex;
+  align-items: center;
+}
+
+.getintouch__item {
+  flex: 0 1 33.333%;
+}
+
+.item-getintouch {
+  display: flex;
+  flex-direction: column;
+  /* Для выстраивания элементов по вертикальной оси, указываем направление флекса в виде колонок */
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+  padding: 50px 15px;
+}
+
+.item-getintouch_active {
+  background: #252b42;
+  color: #fff;
+  /* ! Текст не изменяется, и остаётся синим почему-то. Проверить и пофиксить */
+}
+
+.item-getintouch > *:not(:last-child) {
+  margin: 0px 0px 15px 0px;
+  /* Вновь обратились ко всем вложенным элементам 1го уровня кроме последнего и применили нижний отступ в 15px  */
+}
+
+.item-getintouch__icon {
+}
+
+.item-getintouch__emails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.item-getintouch__email {
+  columns: inherit;
+  font-weight: 600;
+  line-height: calc(24 / 14 * 100%);
+  /* ! Опять берём данные из макета: величину строки делим на шрифт и умножаем на 100% */
+}
+
+.item-getintouch__email:hover {
+  text-decoration: underline;
+}
+
+.item-getintouch__label {
+  font-weight: 700;
+  color: #252b42;
+  line-height: calc(24 / 16 * 100%);
+  /* ! См. выше */
+}
+
+.item-getintouch__button {
+  border: 1px solid #ff7b47;
+  min-height: 44px;
+  display: flex;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ff7b47;
+  padding: 5px 20px;
+  line-height: 142%;
+  border-radius: 5px;
+  /* ! Т.к. у меня кнопка была во всю ширину блока, ограничил размер вручную и отцентрировал */
+  align-self: center;
+  max-width: 160px;
+}
+
+.item-getintouch__button:hover {
+  background-color: #ff7b47;
+  color: #fff;
+}
+
+/* ! Доработать в адаптивной вёрстке: header (max-width: 475px), page__whoweare (460px), clients__container (869px)*/ ;
