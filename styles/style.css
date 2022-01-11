@@ -1040,7 +1040,7 @@ body {
   }
 }
 
-/* ---------------------------- */
+/* -------------------------------------------------------------------------------------- */
 
 .getintouch {
   padding: 80px 0px 135px 0px;
@@ -1054,8 +1054,17 @@ body {
 }
 
 .getintouch_items {
-  display: flex;
-  align-items: center;
+  margin: 0px -15px;
+  /* Ставим отрицательный внешний отступ для того, чтобы блоки контактов занимали всю строку в горизонтальном отображении */
+}
+
+@media (min-width: 992px) {
+  /* Вновь используем подход Mobile first */
+  .getintouch_items {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .getintouch__item {
@@ -1073,9 +1082,21 @@ body {
 }
 
 .item-getintouch_active {
+  /* Используем модификатор чтобы применить отдельные свойства к отличающемуся блоку (в макете: синий посередине) */
   background: #252b42;
+  padding: 80px 15px;
+  /* Увеличиваем размер среднего блока внутренним отступом */
   color: #fff;
-  /* ! Текст не изменяется, и остаётся синим почему-то. Проверить и пофиксить */
+}
+
+.item-getintouch_active .item-getintouch__button {
+  /* Обращаемся к кнопке именно модификитаора getintouch_active */
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.item-getintouch_active .item-getintouch__button:hover {
+  /* Создаём ховер исключительно для модификатора */
 }
 
 .item-getintouch > *:not(:last-child) {
@@ -1094,7 +1115,7 @@ body {
 }
 
 .item-getintouch__email {
-  columns: inherit;
+  color: inherit;
   font-weight: 600;
   line-height: calc(24 / 14 * 100%);
   /* ! Опять берём данные из макета: величину строки делим на шрифт и умножаем на 100% */
@@ -1132,5 +1153,29 @@ body {
   background-color: #ff7b47;
   color: #fff;
 }
+
+@media (max-width: 992px) {
+  .getintouch {
+    padding: 50px 0px 50px 0px;
+    /* Сокращаем внутренний отступ при уменьшении ширины экрана*/
+  }
+  .getintouch__header {
+    margin: 0px 0px 50px 0px;
+    /* Сокращаем внешний отступ при уменьшении ширины экрана*/
+  }
+  .item-getintouch_active {
+    padding: 50px 15px;
+    /* Сокращаем внешний отступ при уменьшении ширины экрана*/
+  }
+}
+
+@media (max-width: 767px) {
+  .getintouch__header {
+    margin: 0px 0px 30px 0px;
+    /* См. выше*/
+  }
+}
+
+/* ? В видео он постоянно меняет положение элементов в CSS, в частности, медиазапрос. Меняется ли что-либо от этого и есть ли какой-нибудь установленный порядок расположения элементов (сначала элемент, потом медиа\все медиазапросы в конце и т.д.)? */
 
 /* ! Доработать в адаптивной вёрстке: header (max-width: 475px), page__whoweare (460px), clients__container (869px)*/ ;
