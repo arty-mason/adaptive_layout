@@ -219,6 +219,9 @@ body {
 .page__getintouch {
 }
 
+.page__contact {
+}
+
 /* --HEADER-BLOCK------------------------------------- */
 
 .header-block {
@@ -1175,7 +1178,72 @@ body {
     /* См. выше*/
   }
 }
+/* ------------------------------------------------------------------------------------ */
 
-/* ? В видео он постоянно меняет положение элементов в CSS, в частности, медиазапрос. Меняется ли что-либо от этого и есть ли какой-нибудь установленный порядок расположения элементов (сначала элемент, потом медиа\все медиазапросы в конце и т.д.)? */
+.contact {
+  background-color: #fff;
+  padding: 42px 0;
+}
+
+.contact_container {
+}
+
+.contact__content {
+  padding: 0px 0px 20px 0px;
+}
+
+@media (min-width: 767px) {
+  .contact__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Раскидываем элементы контейнера по разным углам */
+  }
+  .contact__content {
+    padding: 0px 20px 0px 0px;
+  }
+}
+
+.contact__title {
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  font-size: 24px;
+  line-height: calc(32 / 24 * 100%);
+  /* ! Снова берём значения из макета: высота строки (32px) делим на размер шрифта (24px) */
+}
+
+.contact__title:not(:last-child) {
+  margin: 0px 0px 10px 0px;
+  /* Применяем отступ от заголовка */
+}
+
+.contact__text {
+  color: #737373;
+  line-height: calc(20 / 14 * 100%);
+  /* ! Тоже высчитываем с помощью макетных данных для этого блока */
+}
+
+.contact__button {
+  display: flex;
+  background: #ff7b47;
+  border-radius: 5px;
+  min-height: 58px;
+  /* Ставим минимальную высоту, чтобы кнопка не могла стать меньше 58px в высоту */
+  padding: 5px 40px;
+  transition: background-color 0.3s ease 0s;
+  /* Transition позволяет определять переходное состояние между двумя состояниями элемента (здесь - стоковый цвет и :hover ниже).
+  Сперва задаём параметр, к которому применяем (background-color), затем задаём время длительности (transition-duration, в данном случае 0.3с), затем определяем характер перехода (ease, т.е. медленный старт, ускорение, медленное завершение, стандартное значение) и затем второе числовое значение, отвечающее за задержку (transition-delay, здесь 0с) 
+  Подробнее: 
+  https://developer.mozilla.org/ru/docs/Web/CSS/transition
+  https://www.w3schools.com/css/css3_transitions.asp
+  */
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.contact__button:hover {
+  background: #aa5330;
+}
 
 /* ! Доработать в адаптивной вёрстке: header (max-width: 475px), page__whoweare (460px), clients__container (869px)*/ ;
