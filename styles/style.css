@@ -220,6 +220,8 @@ body {
 }
 
 .page__contact {
+  margin: 0px 0px 50px 0px;
+  /* ! Добавил от себя внешнинй отступ, чтобы разграничить блок контактов с футером */
 }
 
 /* --HEADER-BLOCK------------------------------------- */
@@ -1244,6 +1246,167 @@ body {
 
 .contact__button:hover {
   background: #aa5330;
+}
+
+/* ------------------------------------------------------------------------ */
+
+.footer {
+}
+
+.footer__top {
+  background: #17213c;
+  padding: 35px 0;
+}
+
+.footer__main {
+}
+
+.footer__row {
+  display: flex;
+  margin: 0px -15px;
+  /* Делаем "схлопывающиеся" отступы безопасности (вместе с колонкой) 
+  ? Необходимо дополнительное разъяснение относительно того, как это работает
+  */
+  flex-wrap: wrap;
+}
+
+.footer__column {
+  padding: 15px 15px;
+  flex: 0 1 16.6667%;
+  /* Выставляем размер 6.6667% от родительского контейнера т.к. имеем 6 колонок, последняя занимает 2 колонки*/
+}
+
+.footer__column:last-child {
+  flex: 0 1 33.334%;
+  /* Ставим последней колонке отдельный размер */
+}
+
+@media (max-width: 992px) {
+  .footer__column {
+    flex: 0 1 25%;
+    /* Даём возможность первым четырём колонкам занимать четверть пространства */
+  }
+  .footer__column:last-child {
+    flex: 1 1 100%;
+    /* Последнюю колонку расширяем на всю строку */
+  }
+}
+
+@media (max-width: 767px) {
+  .footer__column {
+    flex: 0 1 50%;
+    /* То же самое, но теперь половина строки на колонку */
+  }
+}
+
+.footer__label {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(24 / 16 * 100%);
+  /* ! Идём по классике с вычислениями */
+  margin: 0px 0px 20px 0px;
+}
+
+.footer__menu {
+}
+
+.menu-footer {
+}
+
+.menu-footer__list {
+}
+
+.menu-footer__item:not(:last-child) {
+  margin: 0px 0px 10px 0px;
+}
+
+.menu-footer__link {
+  color: #fff;
+  display: inline-block;
+  line-height: calc(24 / 14 * 100%);
+  /* ! См. выше */
+  letter-spacing: 0.2px;
+}
+
+.menu-footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__contacts {
+}
+
+.contacts-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-footer__item {
+  padding: 0px 0px 0px 34px;
+  line-height: calc(24 / 16 * 100%);
+  /* ! См. выше */
+  display: flex;
+  align-items: center;
+  color: #fff;
+  min-height: 30px;
+  /* В отличие от просто line-height, здесь мы не даём строке стать меньше 30px */
+}
+.contacts-footer__item:hover {
+  text-decoration: underline;
+}
+
+.contacts-footer__item:not(:last-child) {
+  margin: 0px 0px 12px 0px;
+}
+
+.contacts-footer__item_phone {
+  background: url("../img/footer/icons/01.svg") 0 0 no-repeat;
+  /* В данном случае, мы вставляем иконки через CSS а не html
+  Параметр background-position: обозначает ачальную позицию для каждого фонового изображения;
+  https://developer.mozilla.org/ru/docs/Web/CSS/background-position
+
+  Свойство background-repeat устанавливает, как фоновые изображения будет повторяться. Они могут повторяться по горизонтальной и вертикальной оси или не повторяться вовсе.
+  https://developer.mozilla.org/ru/docs/Web/CSS/background-repeat
+
+  ? Верстальшик сказал, что здесь в этом нет смысла. Почему? */
+}
+
+.contacts-footer__item_map {
+  background: url("../img/footer/icons/02.svg") 0 0 no-repeat;
+}
+
+.contacts-footer__item_email {
+  background: url("../img/footer/icons/03.svg") 0 0 no-repeat;
+}
+
+.footer__bottom {
+  padding: 25px 0;
+}
+
+@media (min-width: 767px) {
+  .footer__secondary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer__copy {
+  color: #737373;
+  line-height: calc(24 / 16 * 100%);
+  /* ! См. выше */
+}
+
+.footer__social {
+}
+
+.social {
+  display: flex;
+  align-items: center;
+}
+
+.social__item:not(:last-child) {
+  margin: 0px 20px 0px 0px;
 }
 
 /* ! Доработать в адаптивной вёрстке: header (max-width: 475px), page__whoweare (460px), clients__container (869px)*/ ;
