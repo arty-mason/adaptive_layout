@@ -83,6 +83,7 @@ body {
 }
 
 /*# sourceMappingURL=style.css.map */
+
 /* --ШАПКА------------------------------------- */
 .header {
   position: absolute;
@@ -153,9 +154,6 @@ body {
   display: flex;
 }
 
-.menu__item {
-}
-
 .menu__item:not(:last-child) {
   margin: 0px 21px 0px 0px;
   /* Здесь мы применяем внешний отступ для всех элементов списка кроме последнего (параметр :not(:last-child)) во избежание провисающих отступов, "съедающих" лишнее пространство */
@@ -199,9 +197,6 @@ body {
   /* Даётся разрешение\запрет на следующие параметры флекса: "flex-grow" (способность дочернего блока занять всю доступную\свободную площадь родительского контейнера (не занятую другими элементами)); "flex-shrink" (способность дочернего блока сжиматься в рамках родительского контейнера); "flex-basis" (задаёт базовый размер флекс элемента по основной оси. Это свойство определяет размер контент-бокса, если не задано иначе через box-sizing). */
 }
 
-.page__mainblock {
-}
-
 .page__services {
   position: relative;
   z-index: 2;
@@ -230,26 +225,11 @@ body {
   }
 }
 
-.page__achievements {
-}
-
-.page__practice {
-}
-
-.page__whoweare {
-}
-
 .page__clients:not(:last-child) {
   margin: 0px 0px 10px 0px;
   /* Создаём отступ в 10px от элемента
   Применяем not:last-child на случай, если данный элемент будет последним на сайте, чтобы не было провисающих отступов
   */
-}
-
-.page__subscribe {
-}
-
-.page__getintouch {
 }
 
 .page__contact {
@@ -294,17 +274,10 @@ body {
   }
 }
 
-/* --ПОДВАЛ------------------------------------- */
-.footer {
-}
-
 /* --MAIN-BLOCK------------------------------------- */
 
 .main-block {
   position: relative;
-}
-
-.mainblock__container {
 }
 
 .main-block__body {
@@ -454,17 +427,12 @@ body {
 }
 /* ------------------------------------------------------------------------ */
 
-.services {
-}
 .page__services-container {
   margin: 0 auto;
   display: flex;
   align-items: center;
   max-width: 1046px;
   justify-content: space-between;
-}
-
-.services__body {
 }
 
 @media (min-width: 670px) {
@@ -519,9 +487,6 @@ body {
   }
 }
 
-.item-service {
-}
-
 .item-service > *:not(:last-child) {
   margin: 0px 0px 10px 0px;
 }
@@ -532,9 +497,6 @@ body {
 
 .white {
   color: #fff;
-}
-
-.item-service__icon {
 }
 
 .item-service__title {
@@ -567,9 +529,6 @@ body {
     padding: 40px 0;
     /* см. выше*/
   }
-}
-
-.achievements__container {
 }
 
 .achievements__header {
@@ -664,9 +623,6 @@ body {
   }
 }
 
-.practice__container {
-}
-
 .practice__header {
   margin: 0px 0px 45px 0px;
 }
@@ -701,9 +657,6 @@ body {
     flex: 0 1 100%;
     /* То же самое, но теперь уже карточка занимает всю строку при меньшем разрешении (100%) */
   }
-}
-
-.practice__item {
 }
 
 .item-practice {
@@ -766,9 +719,6 @@ body {
   padding: 80px 0px 130px 0px;
 }
 
-.whoweare__container {
-}
-
 .whoweare__header {
   margin: 0px 0px 100px 0px;
 }
@@ -825,12 +775,6 @@ body {
 
 .whoweare__top:not(:last-child) {
   margin: 0px 0px 50px 0px;
-}
-
-.whoweare__items {
-}
-
-.whoweare__item {
 }
 
 .whoweare__item:not(:last-child) {
@@ -957,9 +901,6 @@ body {
   }
 }
 
-.clients__container {
-}
-
 .clients__items {
   display: flex;
   align-items: center;
@@ -1004,9 +945,6 @@ body {
   height: 77%;
   left: 0;
   background: #252b42;
-}
-
-.subscribe__container {
 }
 
 .subscribe__body {
@@ -1131,9 +1069,6 @@ body {
   padding: 80px 0px 135px 0px;
 }
 
-.getintouch__container {
-}
-
 .getintouch__header {
   margin: 0px 0px 80px 0px;
 }
@@ -1180,16 +1115,9 @@ body {
   color: #fff;
 }
 
-.item-getintouch_active .item-getintouch__button:hover {
-  /* Создаём ховер исключительно для модификатора */
-}
-
 .item-getintouch > *:not(:last-child) {
   margin: 0px 0px 15px 0px;
   /* Вновь обратились ко всем вложенным элементам 1го уровня кроме последнего и применили нижний отступ в 15px  */
-}
-
-.item-getintouch__icon {
 }
 
 .item-getintouch__emails {
@@ -1268,9 +1196,6 @@ body {
   padding: 42px 0;
 }
 
-.contact_container {
-}
-
 .contact__content {
   padding: 0px 0px 20px 0px;
 }
@@ -1338,15 +1263,9 @@ body {
 
 /* ------------------------------------------------------------------------ */
 
-.footer {
-}
-
 .footer__top {
   background: #17213c;
   padding: 35px 0;
-}
-
-.footer__main {
 }
 
 .footer__row {
@@ -1396,15 +1315,6 @@ body {
   margin: 0px 0px 20px 0px;
 }
 
-.footer__menu {
-}
-
-.menu-footer {
-}
-
-.menu-footer__list {
-}
-
 .menu-footer__item:not(:last-child) {
   margin: 0px 0px 10px 0px;
 }
@@ -1419,9 +1329,6 @@ body {
 
 .menu-footer__link:hover {
   text-decoration: underline;
-}
-
-.footer__contacts {
 }
 
 .contacts-footer {
@@ -1481,9 +1388,6 @@ body {
   color: #737373;
   line-height: calc(24 / 16 * 100%);
   /* ! См. выше */
-}
-
-.footer__social {
 }
 
 .social {
