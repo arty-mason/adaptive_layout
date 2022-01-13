@@ -133,8 +133,13 @@ body {
 
 @media (max-width: 479px) {
   .header__menu {
-    margin: 0px 0px 0px 20px;
-    /* Медиа запрос на уменьшение внешнего отступа блока (margin) до 20px при достижении ширины 479px (параметр max-width) - телефонов с маленьким экраном*/
+    max-width: 50%;
+    /* ! Собственный фикс: задал дочернему элементу разрешение занимать только половину от родительского контейнера, чтобы строчки отображались красивее (не 3\1, а 2\2) */
+  }
+  .header__container {
+    display: flex;
+    justify-content: space-between;
+    /* ! Собственный фикс: вместо выставления полей, выставил контейнеру горизонтальную ось и расставил блоки на расстоянии друг от друга */
   }
 }
 
@@ -163,10 +168,28 @@ body {
   /* Функция 'calc' позволяет совершить математические операции внутри css, и в данном случае рассчитывает оптимальную высоту строки в пропорциях к остальному шрифту. Пояснение: изначально в макете параметр 'line-height' имел значение 24px. Делим на размер шрифта, указанного для всего блока body вначале css (14px) и умножаем на 100%, что приблизительно равняется 171%. */
 }
 
+.menu__link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 479px) {
   .menu__link {
     font-size: 18px;
     /* Медиа запрос на уменьшение увеличение шрифта (font-size до 18px при достижении ширины 479px (параметр max-width) - телефонов с маленьким экраном. При этом автоматически подтягивается высота строки (line-height), т.к. значение рассчитывается в процентах */
+  }
+}
+
+@media (max-width: 376px) {
+  .menu__link {
+    font-size: 16px;
+    /* ! То же самое, но у же по одной в строку*/
+  }
+}
+
+@media (max-width: 346px) {
+  .menu__link {
+    font-size: 14px;
+    /* ! То же самое, но у же по одной в строку*/
   }
 }
 
@@ -194,6 +217,16 @@ body {
     /* ! Собственный фикс: выставляем положительный отступ для перемещения блока на следующую страницу при уменьшении ширины экрана*/
     display: flex;
     /* ! Собственный фикс: выравнивание колонок по центру при уменьшении ширины экрана */
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    /* ! То же выравнивание для хэдера */
+  }
+  .main-block {
+    display: flex;
+    justify-content: space-between;
+    /* ! Так же примененно выравнивание для контента первой страницы */
   }
 }
 
@@ -358,6 +391,8 @@ body {
   padding: 5px 36px;
   margin: 10px 0px;
   /* Компенсируем уменьшение отступа сверху и снизу от предыдущего элемента на те же 10px для создания отступа для нижней кнопки при перенесении её на другую строку (уменьшение ширины экрана)*/
+  transition: all 0.3s ease 0s;
+  /* Добавляем характер ховера к обеим кнопкам, и выставляем длительность и нулевую задержку */
 }
 
 @media (max-width: 479px) {
@@ -375,13 +410,25 @@ body {
 }
 
 .orange {
+  border: 1px solid #ff7b47;
+  color: #ff7b47;
+  /* ! Собственный фикс: заменил сделал первую кнопку похожую по стилистике на вторую */
+}
+
+.orange:hover {
   background: #ff7b47;
   color: #fff;
+  /* ! Также исправил ховер для первой кнопки в стилизации второй */
 }
 
 .border {
   color: #0d5c63;
-  border: 1px solid;
+  border: 1px solid #0d5c63;
+}
+
+.border:hover {
+  color: #fff;
+  background-color: #0d5c63;
 }
 
 .main-block__image {
@@ -854,21 +901,38 @@ body {
     /* Уменьшаем шрифт заголовка */
   }
   .whoweare__content {
-    padding: 0px 0px 0px 50px;
+    padding: 0px 0px 0px 30px;
     /* Уменьшаем внутренний отступ для контента */
   }
-  .whoweare__video {
-    padding: 0px 0px calc(315 / 560 * 100%) 0px;
-    /* !При изменении пропорций видео брались значения из самого видео при его встраивании */
+  .whoweare__top {
+    text-align: center;
   }
-  .whoweare__video:not(:last-child) {
-    margin: 50px 0px 0px 0px;
-    /* ? В блоке .whoweare__video всего лишь один элемент - сам блок с видео. Как так получается, что работает свойство not:last-child и появляется верхний отступ? */
+}
+
+@media (max-width: 465px) {
+  .whoweare__items {
+    text-align: center;
+    /* ! Собственный фикс: выставил новый медиазапрос для адаптивности с центрированием текста */
   }
-  .whoweare__header {
-    margin: 0px 0px 30px 0px;
-    /* Уменьшаем внешний отступ для хедера */
+  .whoweare__content {
+    padding: 0px 0px 0px 10px;
+    /* ! Также ещё изменил уменьшение внутреннего отступа при маленькой ширине экрана */
   }
+}
+
+.whoweare__video {
+  padding: 0px 0px calc(315 / 560 * 100%) 0px;
+  /* !При изменении пропорций видео брались значения из самого видео при его встраивании */
+}
+
+.whoweare__video:not(:last-child) {
+  margin: 50px 0px 0px 0px;
+  /* ? В блоке .whoweare__video всего лишь один элемент - сам блок с видео. Как так получается, что работает свойство not:last-child и появляется верхний отступ? */
+}
+
+.whoweare__header {
+  margin: 0px 0px 30px 0px;
+  /* Уменьшаем внешний отступ для хедера */
 }
 
 @media (max-width: 767px) {
@@ -882,7 +946,7 @@ body {
     margin: 30px 0px 0px 0px;
   }
 }
-/* ---------------------------------- */
+/* ------------------------------------------------------------- */
 .clients {
   padding: 50px 0;
 }
@@ -911,6 +975,13 @@ body {
   text-align: center;
   min-width: 140px;
   /* Устанавливаем жёсткие рамки минимальной ширины*/
+}
+
+@media (max-width: 869px) {
+  .clients__item {
+    flex: 0 1 33.333%;
+  }
+  /* ! Собственный фикс: при сниженном разрешении сразу выставил три единицы в рядл */
 }
 
 .clients__item img {
@@ -1031,9 +1102,18 @@ body {
   min-height: 58px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  /* Меняем курсор на указатель при наведении на кнопку */
   text-align: center;
   color: #fff;
+  transition: all 0.3s ease 0s;
+  /* Как и выше, стилизовали переходы */
   padding: 0px 22px;
+}
+
+.subscribe__button:hover {
+  background: #ca6137;
+  /* Сделали кнопку темнее при наведении курсора */
 }
 
 @media (max-width: 810px) {
@@ -1045,7 +1125,7 @@ body {
   }
 }
 
-/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------- */
 
 .getintouch {
   padding: 80px 0px 135px 0px;
@@ -1194,18 +1274,6 @@ body {
   padding: 0px 0px 20px 0px;
 }
 
-@media (min-width: 767px) {
-  .contact__body {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Раскидываем элементы контейнера по разным углам */
-  }
-  .contact__content {
-    padding: 0px 20px 0px 0px;
-  }
-}
-
 .contact__title {
   font-weight: 700;
   letter-spacing: 0.1px;
@@ -1246,6 +1314,25 @@ body {
 
 .contact__button:hover {
   background: #aa5330;
+}
+
+@media (min-width: 767px) {
+  .contact__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Раскидываем элементы контейнера по разным углам */
+  }
+  .contact__content {
+    padding: 0px 20px 0px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact__content {
+    text-align: center;
+    /* ! Собственный фикс: выставил центрирование текста в медиазапросе */
+  }
 }
 
 /* ------------------------------------------------------------------------ */
@@ -1383,12 +1470,10 @@ body {
   padding: 25px 0;
 }
 
-@media (min-width: 767px) {
-  .footer__secondary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.footer__secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer__copy {
@@ -1409,4 +1494,14 @@ body {
   margin: 0px 20px 0px 0px;
 }
 
-/* ! Доработать в адаптивной вёрстке: header (max-width: 475px), page__whoweare (460px), clients__container (869px)*/ ;
+@media (max-width: 767px) {
+  .footer__secondary {
+    flex-direction: column;
+  }
+  .footer__copy {
+    margin: 0px 0px 15px 0px;
+    text-align: center;
+  }
+}
+
+/* ! Доработать в адаптивной вёрстке: clients__container (869px)*/ ;
