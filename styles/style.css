@@ -1212,7 +1212,8 @@ body {
 
 .item-getintouch__label {
   font-weight: 700;
-  color: #252b42;
+  color: #fff;
+  /* ! Пофиксил ошибку: стоял чёрный цвет */
   line-height: calc(24 / 16 * 100%);
   /* ! См. выше */
 }
